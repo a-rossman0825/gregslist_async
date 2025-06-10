@@ -6,10 +6,10 @@ export class House {
     this.bedrooms = data.bedrooms;
     this.bathrooms = data.bathrooms;
     this.levels = data.levels;
-    this.imgUrl = data.imgUrl;
+    this.imgUrl = data.imgUrl || 'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=170667a&w=0&k=20&c=Q7gLG-xfScdlTlPGFohllqpNqpxsU1jy8feD_fob87U=';
     this.year = data.year;
     this.price = data.price;
-    this.description = data.description;
+    this.description = data.description || '';
     this.createdAt = new Date(data.createdAt);
     this.updatedAt = new Date(data.updatedAt);
 
@@ -44,7 +44,6 @@ export class House {
       </div>
     `
   }
-
 
 }
 
