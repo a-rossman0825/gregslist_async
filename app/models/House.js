@@ -1,3 +1,4 @@
+import { AppState } from "../AppState.js";
 
 
 export class House {
@@ -37,11 +38,29 @@ export class House {
                   alt="${this.creatorName}'s profile picture" class="creator-img">
                 <p class="mb-0"${this.creatorName}</p>
               </div>
-              <small>Listed on: ${this.createdAt.toLocaleDateString()}</small>
+              <div>
+                ${this.deletebutton}
+                <small>Listed on: ${this.createdAt.toLocaleDateString()}</small>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    `
+  }
+
+  get deletebutton() {
+    const identity = AppState.identity;
+    if (identity == null) {
+      return '';
+    }
+    
+    if (identity.id != this.creatorId) {
+      return '';
+    }
+
+    return `
+      <button onclick="app.housesController.confirmDelete('${this.id}')" class="btn btn-outline-danger" type="button">Delete House</button>
     `
   }
 

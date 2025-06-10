@@ -18,6 +18,14 @@ class HousesService {
     const newHouse = new House(res.data);
     AppState.houses.push(newHouse);
   }
+
+  async deleteHouse(houseId) {
+    const res = await api.delete(`api/houses/${houseId}`);
+    console.log('🦮🏠🗑️✅Deleted House', res.data);
+    const houses = AppState.houses;
+    const houseI = houses.findIndex((house) => house.id == houseId);
+    houses.splice(houseI, 1);
+  }
 }
 
 export const housesService =  new HousesService();
