@@ -25,7 +25,7 @@ export class House {
           <img src="${this.imgUrl}" alt="${this.creatorName}'s House" class="car-img">
           <span class="car-money d-inline-block px-3 py-1 bg-dark text-success fs-2">$${this.price.toLocaleString()}</span>
           <div class="p-3">
-            <h2 class="mb-3">${this.bedrooms}bd./${this.bathrooms}ba. ${this.levels} story House</h2>
+            <h2 class="mb-3">${this.bedrooms}<small>bd</small>/${this.bathrooms}<small>ba</small> ${this.levels} story house</h2>
             <p>
             <p class="fs-4 fw-bold">${this.year} <span class="mdi mdi-clock-time-four-outline"></span></p>
               ${this.description}
