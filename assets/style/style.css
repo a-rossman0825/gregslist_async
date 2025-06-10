@@ -39,3 +39,13 @@ main {
   border-radius: 50%;
   object-fit: cover;
 }
+
+.landing-bg {
+  background-image: url('https://user-images.githubusercontent.com/102513373/208785565-ae846909-1be5-48ff-b37c-e6c091b36dc4.png');
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(111, 214, 70, 0.9);
+
+}
