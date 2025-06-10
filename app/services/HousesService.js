@@ -7,9 +7,16 @@ class HousesService {
   
   async getHouses() {
     const res = await api.get('api/houses');
-    console.log('🎛️🏠GOT Houses', res.data);
+    console.log('🦮🏠GOT Houses', res.data);
     const houses = res.data.map(pojo => new House(pojo));
     AppState.houses = houses;
+  }
+
+  async createHouse(houseData) {
+    const res = await api.post('api/houses', houseData);
+    console.log('🦮🏠📩Created House', res.data);
+    const newHouse = new House(res.data);
+    AppState.houses.push(newHouse);
   }
 }
 

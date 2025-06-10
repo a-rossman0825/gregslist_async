@@ -31,12 +31,47 @@
         </div>
       </div>
     </section>
-    <!-- SECTION HOUSES LISTINGS -->
+    <!-- SECTION HOUSE SUBMIT FORM -->
     <section class="container mb-5">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 border mb-3 rounded py-4">
           <form>
-            
+            <div class="row justify-content-center">
+              <div class="mb-3 col-md-6">
+                <label for="bedrooms">Bedrooms</label>
+                <input type="number" class="form-control" id="bedrooms" placeholder="Number of Bedrooms..." required min="0" max="1000" name="bedrooms">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="bathrooms">Bathrooms</label>
+                <input type="number" class="form-control" id="bathrooms" placeholder="Number of Bathrooms..." required max="1000" name="bathrooms">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="levels">Levels</label>
+                <input type="number" class="form-control" id="levels" placeholder="Number of Levels..." required max="1000" name="levels">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="year">Year</label>
+                <input type="number" class="form-control" id="year" placeholder="Year Built..." required max="2030" name="year">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="Price of Home..." required max="1000000000" name="price">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="imgUrl" class="form-label">Picture</label>
+                <input type="text" class="form-control" id="imgUrl" placeholder="Url of Image..." maxlength="500"
+                  name="imgUrl">
+              </div>
+              <div class="mb-3">
+                <label for="house-description" class="form-label">Description</label>
+                <textarea class="form-control" id="house-description" rows="3" name="description" placeholder="Write your description here..." maxlength="5000"></textarea>
+              </div>
+              <div class="text-end">
+                <button class="btn btn-outline-success" type="submit">
+                  Submit
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { housesService } from "../services/HousesService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 
 
@@ -26,6 +27,19 @@ export class HousesController {
     houses.forEach((house) => housesContent += house.houseHTMLTemplate);
     const houseListingElm = document.getElementById('house-listings');
     houseListingElm.innerHTML = housesContent;
+  }
+
+  async submitHouse() {
+    try {
+      event.preventDefault();
+      const formElm = event.target;
+      const houseFormData = getFormData(formElm);
+      console.log('🎛️🏠Submitted', houseFormData);
+      await housesService.createHouse(houseFormData);
+    } catch (error) {
+      Pop.error(error, 'ERROR', 'could not create house!');
+      console.error('🎛️🏠 createHouse failed', error);
+    }
   }
 
 }
