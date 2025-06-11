@@ -1,10 +1,6 @@
 
 
 class ViewsService {
-
-  
-  
-  
   
   showSection(section) {
     const landing = document.getElementById('landing');
