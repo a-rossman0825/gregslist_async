@@ -23,32 +23,36 @@
   </header>
 
   <main>
-    <section class="container-fluid mb-4 landing-bg">
+    <section id="landing" class="container-fluid landing-bg">
       <div class="row justify-content-center">
         <div class="col-1">
-          <a class="fs-5" href="cars" onclick="app.viewsController.showSection('cars')">Cars</a>
+          <a class="fs-5" href="" onclick="app.viewsController.showSection('landing')">Home</a>
         </div>
         <div class="col-1">
-          <a class="fs-5" href="houses" onclick="app.viewsController.showSection('houses')">Houses</a>
+          <a class="fs-5" href="" onclick="app.viewsController.showSection('cars')">Cars</a>
         </div>
         <div class="col-1">
-          <a class="fs-5" href="jobs" onclick="app.viewsController.showSection('jobs')">Jobs</a>
+          <a class="fs-5" href="" onclick="app.viewsController.showSection('houses')">Houses</a>
+        </div>
+        <div class="col-1">
+          <a class="fs-5" href="" onclick="app.viewsController.showSection('jobs')">Jobs</a>
         </div>
       </div>
     </section>
 
-    <section id="houses-title" class="container mb-4 d-none">
+    <section id="houses-title" class="container d-none">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-3">
           <h1>Houses</h1>
         </div>
+        <button id="show-houses-btn" onclick="app.housesController.showHousesForm()" class="text-secondary col-2 btn btn-primary listing">List A House</button>
       </div>
     </section>
     <!-- SECTION HOUSE SUBMIT FORM -->
     <section id="houses-body" class="container mb-5 d-none">
       <div class="row">
-        <div class="col-md-6 border mb-3 rounded py-4">
-          <form onsubmit="app.housesController.submitHouse()">
+        <div class="col-md-6 mb-3 rounded py-4">
+          <form id="houses-form" class="d-none" onsubmit="app.housesController.submitHouse()">
             <div class="row justify-content-center">
               <div class="mb-3 col-md-6">
                 <label for="bedrooms">Bedrooms</label>
@@ -93,7 +97,7 @@
             </div>
           </form>
         </div>
-        <div class="col-md-6">
+        <div id="houses-img" class="col-md-6 d-none">
           <img
             src="https://www.brookings.edu/wp-content/uploads/2024/03/ForSale_House_Family_realtor.jpg?quality=75&w=1500"
             alt="For sale sign in front of house" class="img-fluid w-100">
@@ -130,10 +134,12 @@
 
 
     <!-- !SECTION -->
+    <!-- SECTION CARS LISTINGS  -->
     <section id="cars-title" class="container d-none">
-      <div class="row">
+      <div class="row justify-content-end">
         <div class="col-12">
           <h1>Cars</h1>
+          <button id="show-cars-btn" onclick="app.carsController.showCarsForm()" class="text-secondary col-2 btn btn-primary closed listing">List A Car</button>
         </div>
       </div>
     </section>
@@ -141,7 +147,7 @@
     <section id="cars-body" class="container d-none">
       <div class="row">
         <div class="col-md-6">
-          <form onsubmit="app.carsController.submitCar()">
+          <form id="cars-form" onsubmit="app.carsController.submitCar()" class="d-none">
             <div class="mb-3">
               <label for="car-make" class="form-label">Car Make</label>
               <input type="text" class="form-control" id="car-make" placeholder="Car Make..." required maxlength="500"
@@ -202,7 +208,7 @@
             </div>
           </form>
         </div>
-        <div class="col-md-6">
+        <div id="cars-img" class="col-md-6 d-none">
           <img
             src="https://images.unsplash.com/photo-1541570213932-8cd806e3f8f6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJvYWQlMjB0cmlwfGVufDB8fDB8fHww"
             alt="a dude hanging out of a car" class="img-fluid w-100 object-fit-cover">
@@ -238,7 +244,101 @@
         </div> -->
       </div>
     </section>
-
+    <!-- !SECTION -->
+    
+    <!-- SECTION JOBS LISTINGS -->
+        <section id="jobs-title" class="container d-none">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <h1>Jobs</h1>
+        </div>
+        <button id="show-jobs-btn" onclick="app.jobsController.showJobsForm()" class="text-secondary col-2 btn btn-primary listing">List A Job</button>
+      </div>
+    </section>
+    <!-- SECTION JOBS SUBMIT FORM -->
+    <section id="jobs-body" class="container mb-5 d-none">
+      <div class="row">
+        <div class="col-md-6 mb-3 rounded py-4">
+          <form id="jobs-form" class="d-none" onsubmit="app.jobsController.submitJob()">
+            <div class="row justify-content-center">
+              <div class="mb-3 col-md-6">
+                <label for="bedrooms">Bedrooms</label>
+                <input type="number" class="form-control" id="bedrooms" placeholder="Number of Bedrooms..." required
+                  min="0" max="1000" name="bedrooms">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="bathrooms">Bathrooms</label>
+                <input type="number" class="form-control" id="bathrooms" placeholder="Number of Bathrooms..." required
+                  max="1000" name="bathrooms">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="levels">Levels</label>
+                <input type="number" class="form-control" id="levels" placeholder="Number of Levels..." required
+                  max="1000" name="levels">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="year">Year</label>
+                <input type="number" class="form-control" id="year" placeholder="Year Built..." required max="2030"
+                  name="year">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="Price of Home..." required
+                  max="1000000000" name="price">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="imgUrl" class="form-label">Picture</label>
+                <input type="text" class="form-control" id="imgUrl" placeholder="Url of Image..." maxlength="500"
+                  name="imgUrl">
+              </div>
+              <div class="mb-3">
+                <label for="house-description" class="form-label">Description</label>
+                <textarea class="form-control" id="house-description" rows="3" name="description"
+                  placeholder="Write your description here..." maxlength="5000"></textarea>
+              </div>
+              <div class="text-end">
+                <button class="btn btn-outline-success" type="submit">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="jobs-img" class="col-md-6 d-none">
+          <img
+            src="https://www.brookings.edu/wp-content/uploads/2024/03/ForSale_House_Family_realtor.jpg?quality=75&w=1500"
+            alt="For sale sign in front of house" class="img-fluid w-100">
+        </div>
+      </div>
+      <div id="jobs-listings" class="row">
+        <!-- STUB JOBS TEMPLATE -->
+        <!-- <div class="col-md-6">
+          <div class="position-relative shadow house-card" style="border-color: #000000">
+            <img src="./assets/img/logo.png" alt="codeworks logo" class="car-img">
+            <span class="car-money d-inline-block px-3 py-1 bg-dark text-success fs-2">$000</span>
+            <div class="p-3">
+              <h2 class="mb-3">2<small>bd</small>/1<small>ba</small> 1 story house</h2>
+              <p class="fs-4 fw-bold">2018 <span class="mdi mdi-clock-time-four-outline"></span></p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum culpa in velit voluptas facilis
+                voluptatibus ut nihil. Libero, perferendis inventore.
+              </p>
+              <div class="d-flex justify-content-between align-items-end">
+                <div>
+                  <img
+                    src="/assets/img/logo.png"
+                    alt="user img" class="creator-img">
+                  <p class="mb-0">User Name</p>
+                </div>
+                <small>Listed on: 00/00/0000</small>
+              </div>
+            </div>
+          </div>
+        </div>  -->
+      </div>
+    </section>
+    
+    <!-- !SECTION -->
 
   </main>
 

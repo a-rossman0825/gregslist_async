@@ -26,6 +26,11 @@ export class CarsController {
     }
   }
 
+  showCarsForm() {
+    carsService.showCarsForm();
+  }
+
+
   async submitCar() {
     try {
       event.preventDefault() // do not refresh page

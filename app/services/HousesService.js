@@ -12,6 +12,22 @@ class HousesService {
     AppState.houses = houses;
   }
 
+  showHousesForm() {
+    const form = document.getElementById('houses-form');
+    const img = document.getElementById('houses-img');
+    const btn = document.getElementById('show-houses-btn');
+    form.classList.toggle('d-none');
+    img.classList.toggle('d-none');
+    if (btn.classList.contains('listing')) {
+      btn.innerText = 'Close Form';
+      btn.classList.remove('listing');
+    } else {
+      btn.innerText = 'List A House';
+      btn.classList.add('listing');
+    }
+
+  }
+
   async createHouse(houseData) {
     const res = await api.post('api/houses', houseData);
     console.log('🦮🏠📩Created House', res.data);

@@ -3,6 +3,9 @@ import { Car } from "../models/Car.js";
 import { api } from "../utils/Axios.js";
 
 class CarsService {
+
+  
+
   async deleteCar(carId) {
     const response = await api.delete(`api/cars/${carId}`)
     console.log('DELETED CAR', response.data);
@@ -17,6 +20,24 @@ class CarsService {
     const newCar = new Car(response.data)
     AppState.cars.push(newCar)
   }
+
+    showCarsForm() {
+    const form = document.getElementById('cars-form');
+    const img = document.getElementById('cars-img');
+    const btn = document.getElementById('show-cars-btn');
+    
+    form.classList.toggle('d-none');
+    img.classList.toggle('d-none');
+    if (btn.classList.contains('listing')) {
+      btn.innerText = 'Close Form';
+      btn.classList.remove('listing');
+    } else {
+      btn.innerText = 'List a Car';
+      btn.classList.add('listing');
+    }
+  }
+  
+
   async getCars() {
     // NOTE axios is going to be used for network requests
     // NOTE you must specify which HTTP verb you are using by calling the correct method

@@ -30,6 +30,11 @@ export class HousesController {
     houseListingElm.innerHTML = housesContent;
   }
 
+  showHousesForm() {
+    housesService.showHousesForm();
+  }
+
+
   async submitHouse() {
     try {
       event.preventDefault();
